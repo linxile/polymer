@@ -225,10 +225,10 @@ public class SysUserController {
         return Result.ok(res);
     }
 
-    @GetMapping("/export")
+    @PostMapping("/export")
     @Operation(summary = "导出用户")
     @PreAuthorize("hasAuthority('sys:user:export')")
-    public void export(@ParameterObject SysUserQuery query, HttpServletResponse response) throws IOException {
+    public void export(@RequestBody SysUserQuery query, HttpServletResponse response) throws IOException {
         byte[] b = sysUserService.export(query);
 
         response.setContentType(MediaType.APPLICATION_OCTET_STREAM_VALUE);

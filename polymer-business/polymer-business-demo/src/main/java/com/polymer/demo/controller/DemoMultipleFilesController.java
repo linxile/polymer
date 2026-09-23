@@ -132,10 +132,10 @@ public class DemoMultipleFilesController {
         return Result.ok(res);
     }
 
-    @GetMapping("/export")
+    @PostMapping("/export")
     @Operation(summary = "导出多文件上传样例")
     @PreAuthorize("hasAuthority('demo:multipleFiles:export')")
-    public void export(@ParameterObject DemoMultipleFilesQuery query, HttpServletResponse response) throws IOException {
+    public void export(@RequestBody DemoMultipleFilesQuery query, HttpServletResponse response) throws IOException {
         byte[] b = demoMultipleFilesService.export(query);
 
         response.setContentType(MediaType.APPLICATION_OCTET_STREAM_VALUE);
