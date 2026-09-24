@@ -78,8 +78,8 @@ public class SysLogLoginServiceImpl implements SysLogLoginService {
      * @return byte[]
      */
     @Override
-    public byte[] export() {
-        List<SysLogLoginEntity> list = sysLogLoginMapper.selectSysLogLoginList(null);
+    public byte[] export(SysLogLoginQuery query) {
+        List<SysLogLoginEntity> list = sysLogLoginMapper.selectSysLogLoginList(query);
         List<SysLogLoginVO> sysLogLoginVOS = ConvertUtils.convertListTo(list, SysLogLoginVO::new);
         ExcelUtil<SysLogLoginVO> util = new ExcelUtil<>(SysLogLoginVO.class);
         byte[] bytes = util.exportExcel(sysLogLoginVOS, "登录日志","登录日志数据");

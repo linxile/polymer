@@ -34,5 +34,5 @@ public interface SysLogLoginService {
      *
      * @return byte[]
      */
-    byte[] export();
+    byte[] export(SysLogLoginQuery query);
 }
