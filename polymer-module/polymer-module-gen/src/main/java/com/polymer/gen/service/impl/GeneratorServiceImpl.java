@@ -132,6 +132,7 @@ public class GeneratorServiceImpl implements GeneratorService {
         dataModel.put("ModuleName", StringUtils.upperFirst(table.getModuleName()));
         dataModel.put("functionName", table.getFunctionName());
         dataModel.put("FunctionName", StringUtils.upperFirst(table.getFunctionName()));
+        dataModel.put("functionNameKebab", StringUtils.camelToKebab(table.getFunctionName()));
         dataModel.put("formLayout", table.getFormLayout());
 
         // 开发者信息

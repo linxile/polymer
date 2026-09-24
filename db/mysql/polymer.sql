@@ -5357,7 +5357,7 @@ INSERT INTO `sys_menu` VALUES (114, 113, '查看', '', 'demo:multipleFiles:page'
 INSERT INTO `sys_menu` VALUES (115, 113, '新增', '', 'demo:multipleFiles:save', 1, 0, '', 1, 10000, '2026-06-23 09:00:58', 10000, '2026-06-23 09:00:58');
 INSERT INTO `sys_menu` VALUES (116, 113, '修改', '', 'demo:multipleFiles:update,demo:multipleFiles:info', 1, 0, '', 2, 10000, '2026-06-23 09:00:58', 10000, '2026-06-23 09:00:58');
 INSERT INTO `sys_menu` VALUES (117, 113, '删除', '', 'demo:multipleFiles:delete', 1, 0, '', 3, 10000, '2026-06-23 09:00:58', 10000, '2026-06-23 09:00:58');
-INSERT INTO `sys_menu` VALUES (118, 38, '数据导入导出记录', 'sys/importExportRecord/index', 'system:importExportRecord:page', 0, 0, 'icon-menu', 1, 10000, '2026-07-02 14:36:09', 10000, '2026-07-02 14:46:16');
+INSERT INTO `sys_menu` VALUES (118, 38, '数据导入导出记录', 'sys/import-export-record/index', 'system:importExportRecord:page', 0, 0, 'icon-menu', 1, 10000, '2026-07-02 14:36:09', 10000, '2026-07-02 14:46:16');
 INSERT INTO `sys_menu` VALUES (121, 113, '导入', NULL, 'demo:multipleFiles:import', 1, 0, NULL, 4, 10000, '2026-07-09 10:16:49', NULL, NULL);
 INSERT INTO `sys_menu` VALUES (122, 113, '导出', NULL, 'demo:multipleFiles:export', 1, 0, NULL, 5, 10000, '2026-07-09 10:17:08', NULL, NULL);
 INSERT INTO `sys_menu` VALUES (123, NULL, '首页', 'home', NULL, 0, 0, 'icon-dashboard-fill', 0, 10000, '2026-07-14 15:56:15', 10000, '2026-07-14 15:58:15');

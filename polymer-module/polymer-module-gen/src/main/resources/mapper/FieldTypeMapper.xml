@@ -8,11 +8,12 @@
         <result property="columnType" column="column_type"/>
         <result property="attrType" column="attr_type"/>
         <result property="packageName" column="package_name"/>
+        <result property="tsType" column="ts_type"/>
         <result property="createTime" column="create_time"/>
     </resultMap>
 
     <sql id="selectFieldTypeVo">
-        select id,column_type,attr_type,package_name,create_time
+        select id,column_type,attr_type,package_name,ts_type,create_time
         from gen_field_type
     </sql>
 
@@ -42,12 +43,14 @@
             <if test="columnType != null and columnType != ''">column_type,</if>
             <if test="attrType != null and attrType != ''">attr_type,</if>
             <if test="packageName != null and packageName != ''">package_name,</if>
+            <if test="tsType != null and tsType != ''">ts_type,</if>
             <if test="createTime != null">create_time,</if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="columnType != null and columnType != ''">#{columnType},</if>
             <if test="attrType != null and attrType != ''">#{attrType},</if>
             <if test="packageName != null and packageName != ''">#{packageName},</if>
+            <if test="tsType != null and tsType != ''">#{tsType},</if>
             <if test="createTime != null">#{createTime},</if>
         </trim>
     </insert>
@@ -59,6 +62,7 @@
             <if test="columnType != null and columnType != ''">column_type = #{columnType},</if>
             <if test="attrType != null and attrType != ''">attr_type = #{attrType},</if>
             <if test="packageName != null and packageName != ''">package_name = #{packageName},</if>
+            <if test="tsType != null and tsType != ''">ts_type = #{tsType},</if>
             <if test="createTime != null">create_time = #{createTime},</if>
         </set>
         where id = #{id}

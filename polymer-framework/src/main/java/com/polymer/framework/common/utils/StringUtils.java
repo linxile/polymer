@@ -609,4 +609,33 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
         String[] parts = split(str, separator);
         return Arrays.asList(parts);
     }
+
+
+    /**
+     * camelCase 转 kebab-case
+     * <p>
+     * 将驼峰命名的字符串转换为短横线（中划线）命名，用于生成前端文件名、目录名等。
+     * <p>
+     * 转换规则：
+     * <ul>
+     *     <li>遇到「小写字母或数字 + 大写字母」的边界，插入中划线</li>
+     *     <li>整体转为小写</li>
+     * </ul>
+     * <p>
+     * 示例：
+     * <pre>
+     * importExportRecord → import-export-record
+     * dictType           → dict-type
+     * logLogin           → log-login
+     * smsPlatform        → sms-platform
+     * baseClass          → base-class
+     * </pre>
+     *
+     * @param str 待转换的 camelCase 字符串
+     * @return 转换后的 kebab-case 字符串；若入参为 null 或空字符串，原样返回
+     */
+    public static String camelToKebab(String str) {
+        if (str == null || str.isEmpty()) return str;
+        return str.replaceAll("([a-z0-9])([A-Z])", "$1-$2").toLowerCase();
+    }
 }

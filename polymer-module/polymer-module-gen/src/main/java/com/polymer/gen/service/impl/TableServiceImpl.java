@@ -164,6 +164,8 @@ public class TableServiceImpl implements TableService {
             updateField.setFieldComment(field.getFieldComment());
             updateField.setFieldType(field.getFieldType());
             updateField.setAttrType(field.getAttrType());
+            updateField.setPackageName(field.getPackageName());
+            updateField.setTsType(field.getTsType());
 
             tableFieldService.updateTableField(updateField);
         });

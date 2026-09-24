@@ -62,6 +62,7 @@ public class TableFieldServiceImpl implements TableFieldService {
             } else {
                 field.setAttrType(fieldTypeMapping.getAttrType());
                 field.setPackageName(fieldTypeMapping.getPackageName());
+                field.setTsType(fieldTypeMapping.getTsType());
             }
 
             field.setAutoFill(AutoFillEnum.DEFAULT.name());

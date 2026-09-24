@@ -34,14 +34,14 @@ public class GeneratorController {
     /**
      * 生成代码（zip压缩包）
      */
-    @GetMapping("download")
-    public void download(String tableIds, HttpServletResponse response) throws Exception {
+    @PostMapping("download")
+    public void download(@RequestBody List<Long> tableIds, HttpServletResponse response) throws Exception {
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
         ZipOutputStream zip = new ZipOutputStream(outputStream);
 
         // 生成代码
-        for (String tableId : tableIds.split(",")) {
-            generatorService.downloadCode(Long.parseLong(tableId), zip);
+        for (Long tableId : tableIds) {
+            generatorService.downloadCode(tableId, zip);
         }
 
         IoUtils.close(zip);

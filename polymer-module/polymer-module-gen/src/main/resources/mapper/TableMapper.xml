@@ -104,7 +104,7 @@
             <if test="functionName != null and functionName != ''">function_name = #{functionName},</if>
             <if test="formLayout != null">form_layout = #{formLayout},</if>
             <if test="datasourceId != null">datasource_id = #{datasourceId},</if>
-            <if test="baseclassId != null">baseclass_id = #{baseclassId},</if>
+            baseclass_id = #{baseclassId},
             <if test="createTime != null">create_time = #{createTime},</if>
         </set>
         where id = #{id}

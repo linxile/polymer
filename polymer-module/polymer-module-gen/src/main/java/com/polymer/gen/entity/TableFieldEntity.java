@@ -43,6 +43,10 @@ public class TableFieldEntity implements Serializable  {
      */
     private String packageName;
     /**
+     * ts类型
+     */
+    private String tsType;
+    /**
      * 排序
      */
     private Integer sort;
@@ -151,6 +155,15 @@ public class TableFieldEntity implements Serializable  {
     public void setPackageName(String packageName) {
         this.packageName = packageName;
     }
+
+    public String getTsType() {
+        return tsType;
+    }
+
+    public void setTsType(String tsType) {
+        this.tsType = tsType;
+    }
+
     public Integer getSort() {
         return sort;
     }

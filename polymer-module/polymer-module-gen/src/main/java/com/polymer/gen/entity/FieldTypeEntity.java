@@ -27,6 +27,11 @@ public class FieldTypeEntity implements Serializable  {
      * 属性包名
      */
     private String packageName;
+
+    /**
+     * ts类型
+     */
+    private String tsType;
     /**
      * 创建时间
      */
@@ -56,6 +61,15 @@ public class FieldTypeEntity implements Serializable  {
     public void setPackageName(String packageName) {
         this.packageName = packageName;
     }
+
+    public String getTsType() {
+        return tsType;
+    }
+
+    public void setTsType(String tsType) {
+        this.tsType = tsType;
+    }
+
     public LocalDateTime getCreateTime() {
         return createTime;
     }

@@ -12,6 +12,7 @@
         <result property="attrName" column="attr_name"/>
         <result property="attrType" column="attr_type"/>
         <result property="packageName" column="package_name"/>
+        <result property="tsType" column="ts_type"/>
         <result property="sort" column="sort"/>
         <result property="autoFill" column="auto_fill"/>
         <result property="primaryPk" column="primary_pk"/>
@@ -30,7 +31,7 @@
     </resultMap>
 
     <sql id="selectTableFieldVo">
-        select id,table_id,field_name,field_type,field_comment,attr_name,attr_type,package_name,sort,auto_fill,primary_pk,base_field,form_item,form_required,form_type,form_dict,form_validator,grid_item,grid_sort,query_item,query_type,query_form_type,extra
+        select id,table_id,field_name,field_type,field_comment,attr_name,attr_type,package_name,ts_type,sort,auto_fill,primary_pk,base_field,form_item,form_required,form_type,form_dict,form_validator,grid_item,grid_sort,query_item,query_type,query_form_type,extra
         from gen_table_field
     </sql>
 
@@ -64,6 +65,7 @@
             <if test="attrName != null and attrName != ''">attr_name,</if>
             <if test="attrType != null and attrType != ''">attr_type,</if>
             <if test="packageName != null and packageName != ''">package_name,</if>
+            <if test="tsType != null and tsType != ''">ts_type,</if>
             <if test="sort != null">sort,</if>
             <if test="autoFill != null and autoFill != ''">auto_fill,</if>
             <if test="primaryPk != null">primary_pk,</if>
@@ -88,6 +90,7 @@
             <if test="attrName != null and attrName != ''">#{attrName},</if>
             <if test="attrType != null and attrType != ''">#{attrType},</if>
             <if test="packageName != null and packageName != ''">#{packageName},</if>
+            <if test="tsType != null and tsType != ''">#{tsType},</if>
             <if test="sort != null">#{sort},</if>
             <if test="autoFill != null and autoFill != ''">#{autoFill},</if>
             <if test="primaryPk != null">#{primaryPk},</if>
@@ -117,6 +120,7 @@
             <if test="attrName != null and attrName != ''">attr_name = #{attrName},</if>
             <if test="attrType != null and attrType != ''">attr_type = #{attrType},</if>
             <if test="packageName != null and packageName != ''">package_name = #{packageName},</if>
+            <if test="tsType != null and tsType != ''">ts_type = #{tsType},</if>
             <if test="sort != null">sort = #{sort},</if>
             <if test="autoFill != null and autoFill != ''">auto_fill = #{autoFill},</if>
             <if test="primaryPk != null">primary_pk = #{primaryPk},</if>

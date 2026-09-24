@@ -48,15 +48,19 @@
     },
     {
       "templateName": "vue/api.ts.ftl",
-      "generatorPath": "${frontendPath}/src/api/${moduleName}/${functionName}.ts"
+      "generatorPath": "${frontendPath}/src/api/${moduleName}/${functionNameKebab}.ts"
+    },
+    {
+      "templateName": "vue/types.ts.ftl",
+      "generatorPath": "${frontendPath}/src/types/api/${moduleName}/${functionNameKebab}.ts"
     },
     {
       "templateName": "vue/index.vue.ftl",
-      "generatorPath": "${frontendPath}/src/views/${moduleName}/${functionName}/index.vue"
+      "generatorPath": "${frontendPath}/src/views/${moduleName}/${functionNameKebab}/index.vue"
     },
     {
       "templateName": "vue/add-or-update.vue.ftl",
-      "generatorPath": "${frontendPath}/src/views/${moduleName}/${functionName}/add-or-update.vue"
+      "generatorPath": "${frontendPath}/src/views/${moduleName}/${functionNameKebab}/add-or-update.vue"
     }
   ]
 }
