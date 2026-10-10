@@ -20,7 +20,6 @@
         <module>polymer-module-quartz</module>
         <module>polymer-module-message</module>
         <module>polymer-module-monitor</module>
-        <module>polymer-module-gen</module>
         <module>polymer-module-storage</module>
         <module>polymer-module-sequence</module>
     </modules>

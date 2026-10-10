@@ -11,7 +11,7 @@
  Target Server Version : 50728 (5.7.28)
  File Encoding         : 65001
 
- Date: 24/09/2026 14:17:14
+ Date: 10/10/2026 15:17:59
 */
 
 SET NAMES utf8mb4;
@@ -31,7 +31,7 @@ CREATE TABLE `demo_multiple_files`  (
   `updater` bigint(20) NULL DEFAULT NULL COMMENT '更新者',
   `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '多文件上传样例' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '多文件上传样例' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of demo_multiple_files
@@ -39,221 +39,7 @@ CREATE TABLE `demo_multiple_files`  (
 INSERT INTO `demo_multiple_files` VALUES (1, '2324', '<p><img src=\"http://127.0.0.1:9000/polymer/20260625/1-%201-2_1782350029.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=minioadmin%2F20260625%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260625T015404Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Signature=21dc778d04bac09a3d6f06afbed712117e6acfc0f89c951bd7c0b7dd14359b36\" alt=\"1- 1-2.jpg\" data-href=\"20260625/1- 1-2_1782350029.jpg\" style=\"\"/>33424<img src=\"http://127.0.0.1:9000/polymer/20260625/0e587e04316db09f3ce4a604846acfc6_1782350037.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=minioadmin%2F20260625%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260625T015404Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&X-Amz-Signature=718090ef93db0265a27c648bc6346538cffe4cc27a16add4ab11593bf38100c1\" alt=\"0e587e04316db09f3ce4a604846acfc6.jpeg\" data-href=\"20260625/0e587e04316db09f3ce4a604846acfc6_1782350037.jpeg\" style=\"\"/></p>', NULL, 10000, '2026-06-23 10:28:31', 10000, '2026-06-25 09:54:08');
 INSERT INTO `demo_multiple_files` VALUES (2, '444', '1', NULL, 10000, '2026-06-23 11:04:32', NULL, NULL);
 INSERT INTO `demo_multiple_files` VALUES (3, '333', '333', NULL, 10000, '2026-07-09 10:21:18', NULL, NULL);
-
--- ----------------------------
--- Table structure for gen_base_class
--- ----------------------------
-DROP TABLE IF EXISTS `gen_base_class`;
-CREATE TABLE `gen_base_class`  (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'id',
-  `package_name` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '基类包名',
-  `code` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '基类编码',
-  `fields` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '基类字段，多个用英文逗号分隔',
-  `remark` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '备注',
-  `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '基类管理' ROW_FORMAT = DYNAMIC;
-
--- ----------------------------
--- Records of gen_base_class
--- ----------------------------
-INSERT INTO `gen_base_class` VALUES (1, 'com.polymer.framework.mybatis.core.entity', 'BaseEntity', 'id,creator,create_time,updater,update_time', '使用该基类，则需要表里有这些字段。', '2023-07-11 14:33:08');
-
--- ----------------------------
--- Table structure for gen_datasource
--- ----------------------------
-DROP TABLE IF EXISTS `gen_datasource`;
-CREATE TABLE `gen_datasource`  (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'id',
-  `db_type` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '数据库类型',
-  `conn_name` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '连接名',
-  `conn_url` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT 'URL',
-  `username` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '用户名',
-  `password` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '密码',
-  `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '数据源管理' ROW_FORMAT = DYNAMIC;
-
--- ----------------------------
--- Records of gen_datasource
--- ----------------------------
-INSERT INTO `gen_datasource` VALUES (1, 'MySQL', 'localhost', 'jdbc:mysql://localhost:3306/polymer?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&nullCatalogMeansCurrent=true', 'root', 'D+pIfdDhUQIy0wZtB8bY0Q==', '2023-07-11 15:37:57');
-
--- ----------------------------
--- Table structure for gen_field_type
--- ----------------------------
-DROP TABLE IF EXISTS `gen_field_type`;
-CREATE TABLE `gen_field_type`  (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'id',
-  `column_type` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '字段类型',
-  `attr_type` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '属性类型',
-  `package_name` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '属性包名',
-  `ts_type` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT 'ts类型',
-  `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
-  PRIMARY KEY (`id`) USING BTREE,
-  UNIQUE INDEX `column_type`(`column_type`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 34 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '字段类型管理' ROW_FORMAT = DYNAMIC;
-
--- ----------------------------
--- Records of gen_field_type
--- ----------------------------
-INSERT INTO `gen_field_type` VALUES (1, 'datetime', 'LocalDateTime', 'java.time.LocalDateTime', 'string', '2023-07-11 14:33:08');
-INSERT INTO `gen_field_type` VALUES (2, 'date', 'LocalDate', 'java.time.LocalDate', 'string', '2023-07-11 14:33:08');
-INSERT INTO `gen_field_type` VALUES (3, 'tinyint', 'Integer', NULL, 'number', '2023-07-11 14:33:08');
-INSERT INTO `gen_field_type` VALUES (4, 'smallint', 'Integer', NULL, 'number', '2023-07-11 14:33:08');
-INSERT INTO `gen_field_type` VALUES (5, 'mediumint', 'Integer', NULL, 'number', '2023-07-11 14:33:08');
-INSERT INTO `gen_field_type` VALUES (6, 'int', 'Integer', NULL, 'number', '2023-07-11 14:33:08');
-INSERT INTO `gen_field_type` VALUES (7, 'integer', 'Integer', NULL, 'number', '2023-07-11 14:33:08');
-INSERT INTO `gen_field_type` VALUES (8, 'bigint', 'Long', NULL, 'number', '2023-07-11 14:33:08');
-INSERT INTO `gen_field_type` VALUES (9, 'float', 'Float', NULL, 'number', '2023-07-11 14:33:08');
-INSERT INTO `gen_field_type` VALUES (10, 'double', 'Double', NULL, 'number', '2023-07-11 14:33:08');
-INSERT INTO `gen_field_type` VALUES (11, 'decimal', 'BigDecimal', 'java.math.BigDecimal', 'number', '2023-07-11 14:33:08');
-INSERT INTO `gen_field_type` VALUES (12, 'bit', 'Boolean', NULL, 'boolean', '2023-07-11 14:33:08');
-INSERT INTO `gen_field_type` VALUES (13, 'char', 'String', NULL, 'string', '2023-07-11 14:33:08');
-INSERT INTO `gen_field_type` VALUES (14, 'varchar', 'String', NULL, 'string', '2023-07-11 14:33:08');
-INSERT INTO `gen_field_type` VALUES (15, 'tinytext', 'String', NULL, 'string', '2023-07-11 14:33:08');
-INSERT INTO `gen_field_type` VALUES (16, 'text', 'String', NULL, 'string', '2023-07-11 14:33:08');
-INSERT INTO `gen_field_type` VALUES (17, 'mediumtext', 'String', NULL, 'string', '2023-07-11 14:33:08');
-INSERT INTO `gen_field_type` VALUES (18, 'longtext', 'String', NULL, 'string', '2023-07-11 14:33:08');
-INSERT INTO `gen_field_type` VALUES (19, 'timestamp', 'LocalDateTime', 'java.time.LocalDateTime', 'string', '2023-07-11 14:33:08');
-INSERT INTO `gen_field_type` VALUES (20, 'NUMBER', 'Integer', NULL, 'number', '2023-07-11 14:33:08');
-INSERT INTO `gen_field_type` VALUES (21, 'BINARY_INTEGER', 'Integer', NULL, 'number', '2023-07-11 14:33:08');
-INSERT INTO `gen_field_type` VALUES (22, 'BINARY_FLOAT', 'Float', NULL, 'number', '2023-07-11 14:33:08');
-INSERT INTO `gen_field_type` VALUES (23, 'BINARY_DOUBLE', 'Double', NULL, 'number', '2023-07-11 14:33:08');
-INSERT INTO `gen_field_type` VALUES (24, 'VARCHAR2', 'String', NULL, 'string', '2023-07-11 14:33:08');
-INSERT INTO `gen_field_type` VALUES (25, 'NVARCHAR', 'String', NULL, 'string', '2023-07-11 14:33:08');
-INSERT INTO `gen_field_type` VALUES (26, 'NVARCHAR2', 'String', NULL, 'string', '2023-07-11 14:33:08');
-INSERT INTO `gen_field_type` VALUES (27, 'CLOB', 'String', NULL, 'number', '2023-07-11 14:33:08');
-INSERT INTO `gen_field_type` VALUES (28, 'int8', 'Long', NULL, 'number', '2023-07-11 14:33:08');
-INSERT INTO `gen_field_type` VALUES (29, 'int4', 'Integer', NULL, 'number', '2023-07-11 14:33:08');
-INSERT INTO `gen_field_type` VALUES (30, 'int2', 'Integer', NULL, 'number', '2023-07-11 14:33:08');
-INSERT INTO `gen_field_type` VALUES (31, 'numeric', 'BigDecimal', 'java.math.BigDecimal', 'number', '2023-07-11 14:33:08');
-INSERT INTO `gen_field_type` VALUES (32, 'time', 'LocalTime', 'java.time.LocalTime', 'string', '2024-06-17 16:46:49');
-INSERT INTO `gen_field_type` VALUES (33, 'year', 'Year', 'java.time.Year', 'string', '2024-06-17 17:01:01');
-
--- ----------------------------
--- Table structure for gen_project_modify
--- ----------------------------
-DROP TABLE IF EXISTS `gen_project_modify`;
-CREATE TABLE `gen_project_modify`  (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'id',
-  `project_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '项目名',
-  `project_code` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '项目标识',
-  `project_package` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '项目包名',
-  `project_path` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '项目路径',
-  `modify_project_name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '变更项目名',
-  `modify_project_code` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '变更标识',
-  `modify_project_package` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '变更包名',
-  `exclusions` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '排除文件',
-  `modify_suffix` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '变更文件',
-  `modify_tmp_path` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '变更临时路径',
-  `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '项目名变更' ROW_FORMAT = DYNAMIC;
-
--- ----------------------------
--- Records of gen_project_modify
--- ----------------------------
-INSERT INTO `gen_project_modify` VALUES (1, 'polymer', 'polymer', 'com.polymer', 'D:/polymer', 'zhangxf', 'zhangxf', 'com.zhangxf', '.git,.idea,target,logs', 'java,xml,yml,txt,md,sql,ftl,json', NULL, '2023-07-11 14:33:08');
-
--- ----------------------------
--- Table structure for gen_table
--- ----------------------------
-DROP TABLE IF EXISTS `gen_table`;
-CREATE TABLE `gen_table`  (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'id',
-  `table_name` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '表名',
-  `class_name` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '类名',
-  `table_comment` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '说明',
-  `author` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '作者',
-  `email` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '邮箱',
-  `package_name` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '项目包名',
-  `version` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '项目版本号',
-  `generator_type` tinyint(4) NULL DEFAULT NULL COMMENT '生成方式  0：zip压缩包   1：自定义目录',
-  `backend_path` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '后端生成路径',
-  `frontend_path` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '前端生成路径',
-  `module_name` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '模块名',
-  `function_name` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '功能名',
-  `form_layout` tinyint(4) NULL DEFAULT NULL COMMENT '表单布局  1：一列   2：两列',
-  `datasource_id` bigint(20) NULL DEFAULT NULL COMMENT '数据源ID',
-  `baseclass_id` bigint(20) NULL DEFAULT NULL COMMENT '基类ID',
-  `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
-  PRIMARY KEY (`id`) USING BTREE,
-  UNIQUE INDEX `table_name`(`table_name`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 244 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '代码生成表' ROW_FORMAT = DYNAMIC;
-
--- ----------------------------
--- Records of gen_table
--- ----------------------------
-INSERT INTO `gen_table` VALUES (241, 'sys_sequence', 'SysSequence', '发号器表', 'polymer', 'polymer@126.com', 'com.polymer', '1.0.0', 0, 'D:\\generator\\polymer\\polymer-application', 'D:\\generator\\polymer-ui', '.polymer', 'sequence', 1, 1, NULL, '2026-06-17 17:23:00');
-INSERT INTO `gen_table` VALUES (242, 'demo_multiple_files', 'DemoMultipleFiles', '多文件上传样例', 'polymer', 'polymer@126.com', 'com.polymer', '1.0.0', 0, 'D:\\ideaprojects\\polymer\\polymer-business\\polymer-business-demo', 'D:\\webstorm\\polymer-ui', 'demo', 'multipleFiles', 1, 1, 1, '2026-06-23 08:49:12');
-INSERT INTO `gen_table` VALUES (243, 'sys_import_export_record', 'SysImportExportRecord', '导入导出记录表', 'polymer', 'polymer@126.com', 'com.polymer', '1.0.0', 0, 'D:\\generator\\polymer\\polymer-application', 'D:\\generator\\polymer-ui', 'system', 'importExportRecord', 1, 1, 1, '2026-06-29 09:44:50');
-
--- ----------------------------
--- Table structure for gen_table_field
--- ----------------------------
-DROP TABLE IF EXISTS `gen_table_field`;
-CREATE TABLE `gen_table_field`  (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'id',
-  `table_id` bigint(20) NULL DEFAULT NULL COMMENT '表ID',
-  `field_name` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '字段名称',
-  `field_type` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '字段类型',
-  `field_comment` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '字段说明',
-  `attr_name` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '属性名',
-  `attr_type` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '属性类型',
-  `package_name` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '属性包名',
-  `ts_type` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT 'ts类型',
-  `sort` int(11) NULL DEFAULT NULL COMMENT '排序',
-  `auto_fill` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '自动填充  DEFAULT、INSERT、UPDATE、INSERT_UPDATE',
-  `primary_pk` tinyint(4) NULL DEFAULT NULL COMMENT '主键 0：否  1：是',
-  `base_field` tinyint(4) NULL DEFAULT NULL COMMENT '基类字段 0：否  1：是',
-  `form_item` tinyint(4) NULL DEFAULT NULL COMMENT '表单项 0：否  1：是',
-  `form_required` tinyint(4) NULL DEFAULT NULL COMMENT '表单必填 0：否  1：是',
-  `form_type` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '表单类型',
-  `form_dict` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '表单字典类型',
-  `form_validator` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '表单效验',
-  `grid_item` tinyint(4) NULL DEFAULT NULL COMMENT '列表项 0：否  1：是',
-  `grid_sort` tinyint(4) NULL DEFAULT NULL COMMENT '列表排序 0：否  1：是',
-  `query_item` tinyint(4) NULL DEFAULT NULL COMMENT '查询项 0：否  1：是',
-  `query_type` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '查询方式',
-  `query_form_type` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '查询表单类型',
-  `extra` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '主键策略',
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3020 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '代码生成表字段' ROW_FORMAT = DYNAMIC;
-
--- ----------------------------
--- Records of gen_table_field
--- ----------------------------
-INSERT INTO `gen_table_field` VALUES (2988, 241, 'id', 'bigint', '主键id', 'id', 'Long', NULL, NULL, 0, 'DEFAULT', 1, 0, 1, 0, 'text', NULL, NULL, 1, 0, 0, '=', 'text', 'auto_increment');
-INSERT INTO `gen_table_field` VALUES (2989, 241, 'value', 'bigint', '值', 'value', 'Long', NULL, NULL, 1, 'DEFAULT', 0, 0, 1, 0, 'text', NULL, NULL, 1, 0, 0, '=', 'text', NULL);
-INSERT INTO `gen_table_field` VALUES (2990, 241, 'name', 'varchar', '名称', 'name', 'String', NULL, NULL, 2, 'DEFAULT', 0, 0, 1, 0, 'text', NULL, NULL, 1, 0, 0, '=', 'text', NULL);
-INSERT INTO `gen_table_field` VALUES (2991, 241, 'gmt_create', 'datetime', '创建时间', 'gmtCreate', 'LocalDateTime', 'java.time.LocalDateTime', NULL, 3, 'DEFAULT', 0, 0, 1, 0, 'text', NULL, NULL, 1, 0, 0, '=', 'text', NULL);
-INSERT INTO `gen_table_field` VALUES (2992, 241, 'gmt_modified', 'datetime', '更新时间', 'gmtModified', 'LocalDateTime', 'java.time.LocalDateTime', NULL, 4, 'DEFAULT', 0, 0, 1, 0, 'text', NULL, NULL, 1, 0, 0, '=', 'text', NULL);
-INSERT INTO `gen_table_field` VALUES (2993, 242, 'id', 'bigint', 'id', 'id', 'Long', NULL, NULL, 0, 'DEFAULT', 1, 0, 0, 0, 'text', NULL, NULL, 0, 0, 0, '=', 'text', 'auto_increment');
-INSERT INTO `gen_table_field` VALUES (2994, 242, 'name', 'varchar', '名称', 'name', 'String', NULL, NULL, 1, 'DEFAULT', 0, 0, 1, 1, 'text', NULL, NULL, 1, 0, 0, '=', 'text', NULL);
-INSERT INTO `gen_table_field` VALUES (2995, 242, 'dept_id', 'bigint', '部门ID', 'deptId', 'Long', NULL, NULL, 2, 'DEFAULT', 0, 0, 0, 0, 'text', NULL, NULL, 0, 0, 0, '=', 'text', NULL);
-INSERT INTO `gen_table_field` VALUES (2996, 242, 'creator', 'bigint', '创建者', 'creator', 'Long', NULL, NULL, 3, 'DEFAULT', 0, 0, 0, 0, 'text', NULL, NULL, 0, 0, 0, '=', 'text', NULL);
-INSERT INTO `gen_table_field` VALUES (2997, 242, 'create_time', 'datetime', '创建时间', 'createTime', 'LocalDateTime', 'java.time.LocalDateTime', NULL, 4, 'DEFAULT', 0, 0, 0, 0, 'text', NULL, NULL, 1, 0, 0, '=', 'text', NULL);
-INSERT INTO `gen_table_field` VALUES (2998, 242, 'updater', 'bigint', '更新者', 'updater', 'Long', NULL, NULL, 5, 'DEFAULT', 0, 0, 0, 0, 'text', NULL, NULL, 0, 0, 0, '=', 'text', NULL);
-INSERT INTO `gen_table_field` VALUES (2999, 242, 'update_time', 'datetime', '更新时间', 'updateTime', 'LocalDateTime', 'java.time.LocalDateTime', NULL, 6, 'DEFAULT', 0, 0, 0, 0, 'text', NULL, NULL, 0, 0, 0, '=', 'text', NULL);
-INSERT INTO `gen_table_field` VALUES (3000, 242, 'description', 'longtext', '描述', 'description', 'String', NULL, NULL, 7, 'DEFAULT', 0, 0, 1, 1, 'editor', NULL, NULL, 0, 0, 0, '=', 'text', NULL);
-INSERT INTO `gen_table_field` VALUES (3001, 243, 'id', 'bigint', '主键ID', 'id', 'Long', NULL, 'number', 0, 'DEFAULT', 1, 0, 1, 0, 'text', NULL, NULL, 1, 0, 0, '=', 'text', 'auto_increment');
-INSERT INTO `gen_table_field` VALUES (3002, 243, 'operator_name', 'varchar', '操作人姓名', 'operatorName', 'String', NULL, 'string', 1, 'DEFAULT', 0, 0, 1, 0, 'text', NULL, NULL, 1, 0, 1, 'like', 'text', NULL);
-INSERT INTO `gen_table_field` VALUES (3003, 243, 'business_type', 'varchar', '业务对象类型：user-用户, dept-部门, role-角色等', 'businessType', 'String', NULL, 'string', 2, 'DEFAULT', 0, 0, 1, 0, 'text', NULL, NULL, 1, 0, 1, 'like', 'text', NULL);
-INSERT INTO `gen_table_field` VALUES (3004, 243, 'operation_type', 'varchar', '操作类型：import-导入, export-导出', 'operationType', 'String', NULL, 'string', 3, 'DEFAULT', 0, 0, 1, 0, 'text', NULL, NULL, 1, 0, 1, '=', 'select', NULL);
-INSERT INTO `gen_table_field` VALUES (3006, 243, 'total_count', 'int', '总数据量', 'totalCount', 'Integer', NULL, 'number', 5, 'DEFAULT', 0, 0, 1, 0, 'text', NULL, NULL, 1, 0, 0, '=', 'text', NULL);
-INSERT INTO `gen_table_field` VALUES (3007, 243, 'success_count', 'int', '成功量', 'successCount', 'Integer', NULL, 'number', 6, 'DEFAULT', 0, 0, 1, 0, 'text', NULL, NULL, 1, 0, 0, '=', 'text', NULL);
-INSERT INTO `gen_table_field` VALUES (3009, 243, 'conflict_handle_count', 'int', '冲突处理数量（根据import_strategy判断：skip-跳过数量，override-覆盖数量）', 'conflictHandleCount', 'Integer', NULL, 'number', 8, 'DEFAULT', 0, 0, 1, 0, 'text', NULL, NULL, 1, 0, 0, '=', 'text', NULL);
-INSERT INTO `gen_table_field` VALUES (3010, 243, 'import_strategy', 'varchar', '导入策略：update-更新, skip-跳过, override-覆盖', 'importStrategy', 'String', NULL, 'string', 9, 'DEFAULT', 0, 0, 1, 0, 'text', NULL, NULL, 1, 0, 0, '=', 'text', NULL);
-INSERT INTO `gen_table_field` VALUES (3011, 243, 'error_file_url', 'varchar', '错误数据文件地址（相对路径）', 'errorFileUrl', 'String', NULL, 'string', 10, 'DEFAULT', 0, 0, 1, 0, 'text', NULL, NULL, 1, 0, 0, '=', 'text', NULL);
-INSERT INTO `gen_table_field` VALUES (3012, 243, 'result_file_url', 'varchar', '结果文件地址（相对路径）', 'resultFileUrl', 'String', NULL, 'string', 11, 'DEFAULT', 0, 0, 1, 0, 'text', NULL, NULL, 1, 0, 0, '=', 'text', NULL);
-INSERT INTO `gen_table_field` VALUES (3013, 243, 'remark', 'varchar', '备注/错误摘要', 'remark', 'String', NULL, 'string', 12, 'DEFAULT', 0, 0, 1, 0, 'text', NULL, NULL, 1, 0, 0, '=', 'text', NULL);
-INSERT INTO `gen_table_field` VALUES (3014, 243, 'dept_id', 'bigint', '部门ID', 'deptId', 'Long', NULL, 'number', 13, 'DEFAULT', 0, 0, 1, 0, 'text', NULL, NULL, 1, 0, 0, '=', 'text', NULL);
-INSERT INTO `gen_table_field` VALUES (3015, 243, 'creator', 'bigint', '创建者', 'creator', 'Long', NULL, 'number', 14, 'DEFAULT', 0, 0, 1, 0, 'text', NULL, NULL, 1, 0, 0, '=', 'text', NULL);
-INSERT INTO `gen_table_field` VALUES (3016, 243, 'create_time', 'datetime', '创建时间', 'createTime', 'LocalDateTime', 'java.time.LocalDateTime', 'string', 15, 'DEFAULT', 0, 0, 1, 0, 'text', NULL, NULL, 1, 0, 1, 'between', 'datetime', NULL);
-INSERT INTO `gen_table_field` VALUES (3017, 243, 'updater', 'bigint', '更新者', 'updater', 'Long', NULL, 'number', 16, 'DEFAULT', 0, 0, 1, 0, 'text', NULL, NULL, 1, 0, 0, '=', 'text', NULL);
-INSERT INTO `gen_table_field` VALUES (3018, 243, 'update_time', 'datetime', '更新时间', 'updateTime', 'LocalDateTime', 'java.time.LocalDateTime', 'string', 17, 'DEFAULT', 0, 0, 1, 0, 'text', NULL, NULL, 1, 0, 0, '=', 'text', 'on update CURRENT_TIMESTAMP');
-INSERT INTO `gen_table_field` VALUES (3019, 243, 'error_count', 'int', '失败量', 'errorCount', 'Integer', NULL, 'number', 6, 'DEFAULT', 0, 0, 1, 0, 'text', NULL, NULL, 1, 0, 0, '=', 'text', NULL);
+INSERT INTO `demo_multiple_files` VALUES (4, '2222', '444', NULL, 10000, '2026-09-24 16:01:44', NULL, NULL);
 
 -- ----------------------------
 -- Table structure for message_mail_account
@@ -595,7 +381,7 @@ CREATE TABLE `qrtz_scheduler_state`  (
 -- ----------------------------
 -- Records of qrtz_scheduler_state
 -- ----------------------------
-INSERT INTO `qrtz_scheduler_state` VALUES ('PolymerScheduler', 'DESKTOP-F2SPVI51790220170403', 1790220364229, 15000);
+INSERT INTO `qrtz_scheduler_state` VALUES ('PolymerScheduler', 'DESKTOP-F2SPVI51791616492788', 1791616581911, 15000);
 
 -- ----------------------------
 -- Table structure for qrtz_simple_triggers
@@ -672,7 +458,7 @@ CREATE TABLE `qrtz_triggers`  (
 -- ----------------------------
 -- Records of qrtz_triggers
 -- ----------------------------
-INSERT INTO `qrtz_triggers` VALUES ('PolymerScheduler', 'TASK_NAME_6', 'system', 'TASK_NAME_6', 'system', NULL, 1790262000000, -1, 5, 'PAUSED', 'CRON', 1790220170000, 0, NULL, 2, '');
+INSERT INTO `qrtz_triggers` VALUES ('PolymerScheduler', 'TASK_NAME_6', 'system', 'TASK_NAME_6', 'system', NULL, 1791644400000, -1, 5, 'PAUSED', 'CRON', 1791616492000, 0, NULL, 2, '');
 
 -- ----------------------------
 -- Table structure for schedule_job
@@ -763,11 +549,12 @@ CREATE TABLE `sys_attachment`  (
   `updater` bigint(20) NULL DEFAULT NULL COMMENT '更新者',
   `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '附件管理' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '附件管理' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_attachment
 -- ----------------------------
+INSERT INTO `sys_attachment` VALUES (2, NULL, NULL, 'avatar.png', '20260930/avatar_1790754677.png', 122336, NULL, 'LOCAL', 10000, '2026-09-30 15:51:17', NULL, NULL);
 
 -- ----------------------------
 -- Table structure for sys_city
@@ -5136,7 +4923,7 @@ CREATE TABLE `sys_import_export_record`  (
   `updater` bigint(20) NULL DEFAULT NULL COMMENT '更新者',
   `update_time` datetime NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '导入导出记录表' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '导入导出记录表' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_import_export_record
@@ -5150,6 +4937,7 @@ INSERT INTO `sys_import_export_record` VALUES (6, 'admin', 'user', 'export', 2, 
 INSERT INTO `sys_import_export_record` VALUES (7, 'admin', 'user', 'export', 2, 2, 0, 0, NULL, NULL, '20260826/data_1787726202654_1787726202.xlsx', NULL, NULL, 10000, '2026-08-26 14:36:43', NULL, '2026-08-26 14:36:42');
 INSERT INTO `sys_import_export_record` VALUES (8, 'admin', 'user', 'export', 2, 2, 0, 0, NULL, NULL, '20260826/data_1787726724920_1787726724.xlsx', NULL, NULL, 10000, '2026-08-26 14:45:25', NULL, '2026-08-26 14:45:24');
 INSERT INTO `sys_import_export_record` VALUES (9, 'admin', 'user', 'export', 2, 2, 0, 0, NULL, NULL, '20260826/data_1787726867713_1787726867.xlsx', NULL, NULL, 10000, '2026-08-26 14:47:48', NULL, '2026-08-26 14:47:47');
+INSERT INTO `sys_import_export_record` VALUES (10, 'admin', 'multipleFiles', 'import', 2, 1, 1, 0, 'skip', '20260924/data_1790236904164_1790236904.xlsx', '20260924/多文件上传样例导入模板_1790236903.xlsx', '导入总数据2条，导入成功1条，失败1条', NULL, 10000, '2026-09-24 16:01:44', NULL, '2026-09-24 16:01:44');
 
 -- ----------------------------
 -- Table structure for sys_log_error
@@ -5204,7 +4992,7 @@ CREATE TABLE `sys_log_login`  (
   `operation` tinyint(3) UNSIGNED NULL DEFAULT NULL COMMENT '操作信息   0：登录成功   1：退出成功  2：验证码错误  3：账号密码错误',
   `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 200 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '登录日志' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 207 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '登录日志' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_log_login
@@ -5267,6 +5055,13 @@ INSERT INTO `sys_log_login` VALUES (196, 'admin', '127.0.0.1', '内网IP', 'Mozi
 INSERT INTO `sys_log_login` VALUES (197, 'admin', '127.0.0.1', '内网IP', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36 Edg/155.0.0.0', 1, 0, '2026-09-24 08:52:28');
 INSERT INTO `sys_log_login` VALUES (198, 'admin', '127.0.0.1', '内网IP', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36 Edg/155.0.0.0', 1, 1, '2026-09-24 11:23:39');
 INSERT INTO `sys_log_login` VALUES (199, 'admin', '127.0.0.1', '内网IP', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36 Edg/155.0.0.0', 1, 0, '2026-09-24 11:23:44');
+INSERT INTO `sys_log_login` VALUES (200, 'admin', '127.0.0.1', '内网IP', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36 Edg/155.0.0.0', 1, 0, '2026-09-24 15:59:24');
+INSERT INTO `sys_log_login` VALUES (201, 'admin', '127.0.0.1', '内网IP', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36 Edg/155.0.0.0', 1, 1, '2026-09-30 15:49:33');
+INSERT INTO `sys_log_login` VALUES (202, 'admin', '127.0.0.1', '内网IP', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36 Edg/155.0.0.0', 1, 0, '2026-09-30 15:49:46');
+INSERT INTO `sys_log_login` VALUES (203, 'admin', '127.0.0.1', '内网IP', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36 Edg/155.0.0.0', 1, 1, '2026-09-30 15:53:41');
+INSERT INTO `sys_log_login` VALUES (204, 'admin', '127.0.0.1', '内网IP', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36 Edg/155.0.0.0', 1, 0, '2026-09-30 15:54:33');
+INSERT INTO `sys_log_login` VALUES (205, 'admin', '127.0.0.1', '内网IP', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36 Edg/156.0.0.0', 1, 1, '2026-10-10 14:53:22');
+INSERT INTO `sys_log_login` VALUES (206, 'admin', '127.0.0.1', '内网IP', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36 Edg/156.0.0.0', 1, 0, '2026-10-10 14:53:29');
 
 -- ----------------------------
 -- Table structure for sys_log_operate
@@ -5290,7 +5085,7 @@ CREATE TABLE `sys_log_operate`  (
   `result_msg` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '返回消息',
   `create_time` datetime NULL DEFAULT NULL COMMENT '创建时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 20 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '操作日志' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 29 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '操作日志' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of sys_log_operate
@@ -5314,6 +5109,15 @@ INSERT INTO `sys_log_operate` VALUES (16, '用户管理', '修改', '/polymer/sy
 INSERT INTO `sys_log_operate` VALUES (17, '用户管理', '修改', '/polymer/sys/user', 'PUT', '{\"vo\":{\"id\":10001,\"username\":\"zhangxf\",\"realName\":\"张锋\",\"avatar\":\"20260826/avatar_1787714949.png\",\"gender\":0,\"email\":\"616026782@qq.com\",\"mobile\":\"18831139797\",\"provinceCode\":\"130000000000\",\"cityCode\":\"130100000000\",\"districtCode\":\"130104000000\",\"address\":\"二楼\",\"city\":[\"130000000000\",\"130100000000\",\"130104000000\"],\"deptId\":1,\"status\":1,\"roleIdList\":[1],\"roleNameList\":null,\"postIdList\":[1],\"postNameList\":null,\"superAdmin\":0,\"deptName\":\"聚合科技\",\"createTime\":\"2023-10-09 09:02:30\"}}', '127.0.0.1', '内网IP', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/152.0.0.0 Safari/537.36 Edg/152.0.0.0', 3, 16, 1, 10000, 'admin', NULL, '2026-08-26 11:29:11');
 INSERT INTO `sys_log_operate` VALUES (18, '用户管理', '修改登录用户信息', '/polymer/sys/user/info', 'PUT', '{\"vo\":{\"avatar\":\"20260923/a07d952853b5486790cf67b642f262c5!180X180_1790153023.jpeg\",\"gender\":1,\"email\":\"babamu@126.com\",\"mobile\":\"18831139796\",\"provinceCode\":\"130000000000\",\"cityCode\":\"130100000000\",\"districtCode\":\"130105000000\",\"address\":\"xx详细地址\",\"city\":[\"130000000000\",\"130100000000\",\"130105000000\"]}}', '127.0.0.1', '内网IP', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36 Edg/154.0.0.0', 3, 13, 1, 10000, 'admin', NULL, '2026-09-23 16:43:56');
 INSERT INTO `sys_log_operate` VALUES (19, '菜单管理', '修改', '/polymer/sys/menu', 'PUT', '{\"vo\":{\"id\":118,\"pid\":38,\"children\":[],\"directChildrenCount\":0,\"allChildrenCount\":0,\"name\":\"数据导入导出记录\",\"url\":\"sys/import-export-record/index\",\"type\":0,\"openStyle\":0,\"icon\":\"icon-menu\",\"authority\":\"system:importExportRecord:page\",\"sort\":1,\"createTime\":\"2026-07-02 14:36:09\",\"parentName\":\"日志管理\"}}', '127.0.0.1', '内网IP', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36 Edg/155.0.0.0', 3, 52, 1, 10000, 'admin', NULL, '2026-09-24 11:23:37');
+INSERT INTO `sys_log_operate` VALUES (20, '附件管理', '保存', '/polymer/sys/attachment', 'POST', '{\"vo\":{\"id\":null,\"bizMark\":null,\"bizType\":null,\"name\":\"avatar.png\",\"url\":\"20260930/avatar_1790754653.png\",\"size\":122336,\"type\":null,\"platform\":\"LOCAL\",\"createTime\":null}}', '127.0.0.1', '内网IP', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36 Edg/155.0.0.0', 2, 13, 1, 10000, 'admin', NULL, '2026-09-30 15:50:54');
+INSERT INTO `sys_log_operate` VALUES (21, '附件管理', '删除', '/polymer/sys/attachment', 'DELETE', '{\"idList\":[1]}', '127.0.0.1', '内网IP', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36 Edg/155.0.0.0', 4, 44, 1, 10000, 'admin', NULL, '2026-09-30 15:51:11');
+INSERT INTO `sys_log_operate` VALUES (22, '附件管理', '保存', '/polymer/sys/attachment', 'POST', '{\"vo\":{\"id\":null,\"bizMark\":null,\"bizType\":null,\"name\":\"avatar.png\",\"url\":\"20260930/avatar_1790754677.png\",\"size\":122336,\"type\":null,\"platform\":\"LOCAL\",\"createTime\":null}}', '127.0.0.1', '内网IP', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36 Edg/155.0.0.0', 2, 3, 1, 10000, 'admin', NULL, '2026-09-30 15:51:17');
+INSERT INTO `sys_log_operate` VALUES (23, '菜单管理', '删除', '/polymer/sys/menu/108', 'DELETE', '{\"id\":108}', '127.0.0.1', '内网IP', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36 Edg/156.0.0.0', 4, 59, 1, 10000, 'admin', NULL, '2026-10-10 14:53:00');
+INSERT INTO `sys_log_operate` VALUES (24, '菜单管理', '删除', '/polymer/sys/menu/109', 'DELETE', '{\"id\":109}', '127.0.0.1', '内网IP', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36 Edg/156.0.0.0', 4, 9, 1, 10000, 'admin', NULL, '2026-10-10 14:53:03');
+INSERT INTO `sys_log_operate` VALUES (25, '菜单管理', '删除', '/polymer/sys/menu/110', 'DELETE', '{\"id\":110}', '127.0.0.1', '内网IP', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36 Edg/156.0.0.0', 4, 7, 1, 10000, 'admin', NULL, '2026-10-10 14:53:06');
+INSERT INTO `sys_log_operate` VALUES (26, '菜单管理', '删除', '/polymer/sys/menu/111', 'DELETE', '{\"id\":111}', '127.0.0.1', '内网IP', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36 Edg/156.0.0.0', 4, 7, 1, 10000, 'admin', NULL, '2026-10-10 14:53:10');
+INSERT INTO `sys_log_operate` VALUES (27, '菜单管理', '删除', '/polymer/sys/menu/112', 'DELETE', '{\"id\":112}', '127.0.0.1', '内网IP', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36 Edg/156.0.0.0', 4, 5, 1, 10000, 'admin', NULL, '2026-10-10 14:53:13');
+INSERT INTO `sys_log_operate` VALUES (28, '菜单管理', '删除', '/polymer/sys/menu/47', 'DELETE', '{\"id\":47}', '127.0.0.1', '内网IP', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36 Edg/156.0.0.0', 4, 7, 1, 10000, 'admin', NULL, '2026-10-10 14:53:17');
 
 -- ----------------------------
 -- Table structure for sys_menu
@@ -5384,7 +5188,6 @@ INSERT INTO `sys_menu` VALUES (41, 28, '导出', '', 'sys:user:export', 1, 0, ''
 INSERT INTO `sys_menu` VALUES (42, 12, '参数管理', 'sys/params/index', 'sys:params:all', 0, 0, 'icon-filedone', 6, 10000, '2023-07-11 11:05:38', 10000, '2026-06-16 11:06:41');
 INSERT INTO `sys_menu` VALUES (43, 33, '接口文档', '{{apiUrl}}/doc.html', NULL, 0, 1, 'icon-file-text-fill', 5, 10000, '2023-07-11 11:05:38', 10000, '2026-06-16 14:21:50');
 INSERT INTO `sys_menu` VALUES (46, 38, '操作日志', 'sys/log/operate', 'sys:operate:all', 0, 0, 'icon-file-text', 1, 10000, '2023-07-11 11:05:38', 10000, '2023-07-11 11:05:38');
-INSERT INTO `sys_menu` VALUES (47, 33, '代码生成器', NULL, '', 0, 0, 'icon-rocket', 6, 10000, '2023-07-11 11:06:14', 10000, '2026-06-16 15:41:56');
 INSERT INTO `sys_menu` VALUES (48, 33, '短信管理', '', '', 0, 0, 'icon-message', 1, 10000, '2023-07-11 11:06:31', 10000, '2026-06-16 14:21:10');
 INSERT INTO `sys_menu` VALUES (49, 48, '短信日志', 'message/sms/log/index', 'message:smsLog:page,message:smsLog:info', 0, 0, 'icon-detail', 1, 10000, '2023-07-11 11:06:31', 10000, '2023-07-11 11:06:31');
 INSERT INTO `sys_menu` VALUES (50, 48, '短信平台', 'message/sms/platform/index', NULL, 0, 0, 'icon-whatsapp', 0, 10000, '2023-07-11 11:06:31', 10000, '2023-07-11 11:06:31');
@@ -5440,11 +5243,6 @@ INSERT INTO `sys_menu` VALUES (104, 97, '图片裁剪', 'demo/cropper/index', NU
 INSERT INTO `sys_menu` VALUES (105, 97, '富文本编辑器', 'demo/wangeditor/index', NULL, 0, 0, 'icon-read', 5, 10000, '2026-06-16 14:51:39', 10000, '2026-06-24 14:43:43');
 INSERT INTO `sys_menu` VALUES (106, 97, 'SSE消息推送', 'demo/sse/index', NULL, 0, 0, 'icon-read', 6, 10000, '2026-06-16 14:51:56', 10000, '2026-06-24 14:43:47');
 INSERT INTO `sys_menu` VALUES (107, 97, 'ECharts图表', 'demo/echarts/index', NULL, 0, 0, 'icon-read', 7, 10000, '2026-06-16 14:52:14', 10000, '2026-06-24 14:43:52');
-INSERT INTO `sys_menu` VALUES (108, 47, '代码生成', 'gen/generator/index', NULL, 0, 0, 'icon-insertrowbelow', 0, 10000, '2026-06-16 15:44:40', NULL, NULL);
-INSERT INTO `sys_menu` VALUES (109, 47, '数据源管理', 'gen/datasource/index', NULL, 0, 0, NULL, 1, 10000, '2026-06-17 15:44:03', 10000, '2026-06-17 15:46:11');
-INSERT INTO `sys_menu` VALUES (110, 47, '字段类型映射', 'gen/field-type/index', NULL, 0, 0, NULL, 2, 10000, '2026-06-17 15:44:40', 10000, '2026-06-17 15:46:33');
-INSERT INTO `sys_menu` VALUES (111, 47, '基类管理', 'gen/base-class/index', NULL, 0, 0, NULL, 3, 10000, '2026-06-17 15:45:17', 10000, '2026-06-17 15:46:46');
-INSERT INTO `sys_menu` VALUES (112, 47, '项目名变更', 'gen/project/index', NULL, 0, 0, NULL, 4, 10000, '2026-06-17 15:45:38', 10000, '2026-06-17 15:46:58');
 INSERT INTO `sys_menu` VALUES (113, 97, '多文件上传样例', 'demo/multipleFiles/index', NULL, 0, 0, 'icon-menu', 0, 10000, '2026-06-23 09:00:24', 10000, '2026-06-23 09:00:24');
 INSERT INTO `sys_menu` VALUES (114, 113, '查看', '', 'demo:multipleFiles:page', 1, 0, '', 0, 10000, '2026-06-23 09:00:58', 10000, '2026-06-23 09:00:58');
 INSERT INTO `sys_menu` VALUES (115, 113, '新增', '', 'demo:multipleFiles:save', 1, 0, '', 1, 10000, '2026-06-23 09:00:58', 10000, '2026-06-23 09:00:58');
@@ -5730,7 +5528,7 @@ CREATE TABLE `sys_user_token`  (
 -- ----------------------------
 -- Records of sys_user_token
 -- ----------------------------
-INSERT INTO `sys_user_token` VALUES (11, 10000, '6256604018a0489f83c0a7c80dc51266', '2026-09-24 13:23:44', '17f36fb06c5e4dc1a487d68125777e78', '2026-10-08 11:23:44', '2026-06-17 17:21:43');
+INSERT INTO `sys_user_token` VALUES (11, 10000, '02050eef34ac414492431bc519aa6224', '2026-10-10 16:53:30', 'f83ebcb059fd40a1b1b7a3db64b50d43', '2026-10-24 14:53:30', '2026-06-17 17:21:43');
 INSERT INTO `sys_user_token` VALUES (12, 10001, '06981b456730478e8d4195a2da910d7e', '2026-07-21 16:07:59', '4939fe94ba4744789943180b6aa03f4a', '2026-07-21 16:07:59', '2026-07-15 15:50:59');
 INSERT INTO `sys_user_token` VALUES (13, 10004, '035f5c82feb446148652b941c07cb99c', '2026-07-17 10:54:00', '19f30cfedcb94966abc598d9670def9e', '2026-07-17 10:54:00', '2026-07-17 09:56:56');
 

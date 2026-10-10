@@ -14,7 +14,6 @@ polymer
 |    ├── storage -- 存储接口
 |    ├── system -- 用户权限管理接口
 ├── polymer-module -- 通用管理模块
-|    ├── polymer-module-gen -- 系统代码生成公共模块
 |    ├── polymer-module-message -- 系统消息公共模块
 |    ├── polymer-module-monitor -- 系统监控公共模块
 |    ├── polymer-module-quartz -- 系统定时任务公共模块
